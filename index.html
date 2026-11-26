@@ -23,83 +23,77 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="./style.css" />
-    <link rel="icon" href="./imgs/logo.png" type="image/icon type" />
+    <link rel="icon" href="./imgs/logo.png" type="image/png" />
+    <meta name="description" content="Tic Tac Toe for two players in the browser: take turns placing X and O, three in a row wins." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Tic Tac Toe" />
+    <meta property="og:description" content="Tic Tac Toe for two players in the browser: take turns placing X and O, three in a row wins." />
+    <meta property="og:url" content="https://tictactoe-by-ivan-kuper.netlify.app/" />
+    <meta property="og:image" content="https://tictactoe-by-ivan-kuper.netlify.app/og.jpg" />
+    <meta name="theme-color" content="#212529" />
+    <meta name="twitter:card" content="summary_large_image" />
     <title>TIC TAC TOE</title>
   </head>
-  <body>
+  <body class="d-flex flex-column min-vh-100">
     <!-- NavBar -->
-    <nav class="navbar navbar-dark bg-dark navbar-expand-lg bg-light top-0">
+    <nav class="navbar navbar-dark bg-dark">
       <div class="container">
-        <div class="bumblelogo">
-          <a class="navbar-brand" href="index.html"
-            ><img class="logo" src="imgs/logo.png" alt="" />
-            <span class="logoSpan">TIC TAC TOE</span></a
-          >
-        </div>
-        <div class="collapse navbar-collapse" zid="navbarTogglerDemo03">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
-          <form class="d-flex" role="profile">
-            <div class="profile">
-              <span class="text-white">
-                <a href="https://www.linkedin.com/in/ivankuper/" target="_blank"
-                  >Ivan Kuper
-                  <img
-                    class="profilePic"
-                    src="imgs/Profile.jpg"
-                    alt="Profile image" /></a
-              ></span>
-            </div>
-          </form>
-        </div>
+        <a class="navbar-brand" href="index.html"
+          ><img class="logo" src="imgs/logo.png" alt="" width="32" height="32" />
+          <span class="logoSpan">TIC TAC TOE</span></a
+        >
+        <a class="portfolio-link" href="https://ivankuper.github.io/"
+          ><span class="d-none d-sm-inline">Ivan Kuper &middot; </span>Portfolio
+          <img class="profilePic" src="imgs/Profile.jpg" alt="" width="40" height="40"
+        /></a>
       </div>
     </nav>
     <!-- End of Navbar -->
-    <div class="board" id="board">
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-    </div>
-    <div class="winning-message" id="winningMessage">
-      <div data-winning-message-text></div>
-      <button id="restartButton">Restart</button>
-    </div>
+    <main>
+      <h1 class="visually-hidden">Tic Tac Toe</h1>
+      <div class="panel">
+        <p class="status" id="status" aria-live="polite">X's turn</p>
+        <div class="board" id="board">
+          <button type="button" class="cell" data-cell aria-label="Row 1, column 1, empty"></button>
+          <button type="button" class="cell" data-cell aria-label="Row 1, column 2, empty"></button>
+          <button type="button" class="cell" data-cell aria-label="Row 1, column 3, empty"></button>
+          <button type="button" class="cell" data-cell aria-label="Row 2, column 1, empty"></button>
+          <button type="button" class="cell" data-cell aria-label="Row 2, column 2, empty"></button>
+          <button type="button" class="cell" data-cell aria-label="Row 2, column 3, empty"></button>
+          <button type="button" class="cell" data-cell aria-label="Row 3, column 1, empty"></button>
+          <button type="button" class="cell" data-cell aria-label="Row 3, column 2, empty"></button>
+          <button type="button" class="cell" data-cell aria-label="Row 3, column 3, empty"></button>
+        </div>
+        <div class="scores" aria-label="Score">
+          <span>X <strong id="scoreX">0</strong></span>
+          <span>Draws <strong id="scoreD">0</strong></span>
+          <span>O <strong id="scoreO">0</strong></span>
+        </div>
+        <button type="button" id="newBtn" class="again">New game</button>
+        <p class="hint">Two players take turns. Tap a square, or use Tab and Enter. Three in a row wins.</p>
+      </div>
+      <div class="winning-message" id="winningMessage" role="dialog" aria-modal="true" aria-label="Game result">
+        <div data-winning-message-text></div>
+        <button id="restartButton" type="button">Play again</button>
+      </div>
+    </main>
+
     <!-- Footer -->
-    <footer class="footer mt-auto bottom-0 pt-3">
+    <footer class="footer mt-auto pt-3">
       <p class="copyright">
         Coded & Designed By:
         <strong
-          ><a href="https://ivankuper.netlify.app/" target="_blank"
+          ><a href="https://ivankuper.github.io/" target="_blank"
             >Ivan Kuper</a
           ></strong
         >
         © All rights reserved.
       </p>
       <div class="socials">
-        <a
-          class="link"
-          target="_blank"
-          href="https://www.facebook.com/ivankuper7"
-          ><i class="socials fab fa-facebook fa-2x px-1"></i
+        <a aria-label="GitHub" class="link" target="_blank" rel="noopener" href="https://github.com/IvanKuper"
+          ><i class="fa-brands fa-github fa-2x px-1"></i
         ></a>
-        <a
-          class="link"
-          target="_blank"
-          href="https://www.instagram.com/ivan_kuper/"
-          ><i class="socials fab fa-instagram fa-2x px-1"></i
-        ></a>
-        <a class="link" target="_blank" href="https://twitter.com/Ivan7Kuper"
-          ><i class="socials fab fa-twitter fa-2x px-1"></i
-        ></a>
-        <a
-          class="link"
-          target="_blank"
-          href="https://www.linkedin.com/in/ivankuper/"
+        <a aria-label="LinkedIn" class="link" target="_blank" rel="noopener" href="https://www.linkedin.com/in/ivankuper/"
           ><i class="fa-brands fa-linkedin fa-2x px-1"></i
         ></a>
       </div>
